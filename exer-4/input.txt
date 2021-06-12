@@ -1,0 +1,5 @@
+file test2
+set disassembly-flavor intel
+b*exit_here
+r
+x/ub &gcf

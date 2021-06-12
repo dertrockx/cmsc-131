@@ -1,0 +1,37 @@
+caseID: starts at 0 
+caseIDLength: starts at 20
+sex: starts at 21
+sexLength: starts at 22
+status: starts at 23
+statusLength: starts at 24
+date: starts at 25
+dateLength: starts at 35
+
+patient: starts at 0, ends at 36
+
+
+	; sex input
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, addSex
+	mov rdx, addSexLength
+	syscall
+	
+	mov rax, 0
+	mov rdi, 0
+	lea rsi, [ record + 0 * patient_record + sex ]
+	mov rdx, sexLength
+	syscall
+
+	; status input
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, addStatus
+	mov rdx, addStatusLength
+	syscall
+	
+	mov rax, 0
+	mov rdi, 0
+	lea rsi, [ record + 0 * patient_record + status ]
+	mov rdx, statusLength
+	syscall
